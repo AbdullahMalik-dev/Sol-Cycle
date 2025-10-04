@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRYO-SHATTER Finance Model</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>CRYO-SHATTER: Recycling for Mars Survival</h1>
+        <p>Turning astronaut trash into mission-critical materials.</p>
+        <button onclick="document.getElementById('funding').scrollIntoView({ behavior: 'smooth' })">
+            Explore the Model
+        </button>
+    </section>
+
+    <!-- Funding Section -->
+    <section id="funding" class="funding">
+        <h2>Start-Up Fund: $50M</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Sonic Pulverizer</h3>
+                <p>$15M</p>
+            </div>
+            <div class="card">
+                <h3>Sieving & Sorting</h3>
+                <p>$5M</p>
+            </div>
+            <div class="card">
+                <h3>Storage Bins</h3>
+                <p>$3M</p>
+            </div>
+            <div class="card">
+                <h3>Brick Press & Molders</h3>
+                <p>$7M</p>
+            </div>
+            <div class="card">
+                <h3>Research & Testing</h3>
+                <p>$10M</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials & System Section -->
+    <section class="materials">
+        <h2>Low Mass. Multi-Functional. Martian-Ready.</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Lightweight Equipment</h3>
+                <p>100–200 kg total</p>
+            </div>
+            <div class="card">
+                <h3>Efficient Power Use</h3>
+                <p>~2 kW solar/nuclear powered</p>
+            </div>
+            <div class="card">
+                <h3>Self-Sufficient</h3>
+                <p>Uses crew waste + Martian ice</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi">
+        <h2>Return on Investment</h2>
+        <div class="grid">
+            <div class="roi-text">
+                <p>Cost per kg to Mars: $10,000</p>
+                <p>Waste recycled: 12,600 kg</p>
+                <p>Savings: $126M</p>
+            </div>
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Summary -->
+    <section class="summary">
+        <h2>Financial Summary</h2>
+        <p>Start-Up Cost: $40M</p>
+        <p>Material Savings: $126M</p>
+        <p>Net ROI: $86M</p>
+        <p class="bonus">Bonus: survival benefits → tools, shelter, spare parts</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>"On Mars, waste isn't waste — it's survival."</p>
+    </footer>
+
+    <script>
+        // Create pie chart
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Plastics', 'Metals', 'Textiles', 'Glass'],
+                datasets: [{
+                    data: [5000, 3800, 2500, 1300],
+                    backgroundColor: ['#00BFFF', '#FF6347', '#FFD700', '#ADFF2F'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#ffffff',
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed + ' kg';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+<script src="assets/script.js"></script>
+</html>
